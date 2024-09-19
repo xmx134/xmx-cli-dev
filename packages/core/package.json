@@ -17,6 +17,7 @@
     "lib"
   ],
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
@@ -25,5 +26,5 @@
   "dependencies": {
     "@xmx-cli-dev/utils": "1.0.0"
   },
-  "gitHead": "0832ae54a961414142a1c40aea294c2d96550161"
+  "gitHead": "07afa16c606b362a2ae0295e6e49ef671a9eac5f"
 }
