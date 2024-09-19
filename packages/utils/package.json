@@ -1,0 +1,22 @@
+{
+  "name": "@xmx-cli-dev/utils",
+  "version": "1.0.1",
+  "description": "xmx-cli-dev utils",
+  "author": "xmx134 <977784602@qq.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "test": "node ./__tests__/utils.test.js"
+  }
+}
