@@ -1,11 +1,11 @@
-# `utils`
+# `@xmx-cli-dev/log`
 
 > TODO: description
 
 ## Usage
 
 ```
-const utils = require('utils');
+const log = require('@xmx-cli-dev/log');
 
 // TODO: DEMONSTRATE API
 ```

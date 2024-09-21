@@ -1,0 +1,32 @@
+{
+  "name": "@xmx-cli-dev/log",
+  "version": "0.0.6",
+  "description": "> TODO: description",
+  "author": "xmx134 <9777846.2@qq.com>",
+  "homepage": "https://github.com/xmx134/xmx-cli-dev#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xmx134/xmx-cli-dev.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/xmx134/xmx-cli-dev/issues"
+  },
+  "dependencies": {
+    "npmlog": "^7.0.1"
+  }
+}
