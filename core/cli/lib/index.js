@@ -11,7 +11,8 @@ const pkg = require('../package.json')
 // 新模块引用流程：在package.json文件下添加模块依赖
 // 在当前模块包下执行npm link，链接本地文件
 // 在当前模块包下执行npm i，安装对应依赖
-const { log, npm } = require('@xmx-cli-dev/log')
+const log = require('@xmx-cli-dev/log')
+const npm = require('@xmx-cli-dev/npm')
 
 const colors = require('colors/safe')
 const semver = require('semver')
@@ -44,9 +45,12 @@ async function core() {
 async function checkGlobalUpdate() {
   log.verbose('检查 xmx-cli 最新版本')
   const currentVersion = packageConfig.version
-  const lastVersion = await npm.getNpmLatestSemverVersion(NPM_NAME, currentVersion)
+  const npmName = pkg.name
+  const versions = await npm.getNpmVersions(npmName)
+  const lastVersion = await npm.getNpmLatestSemverVersion(npmName, currentVersion)
   if (lastVersion && semver.gt(lastVersion, currentVersion)) {
     log.warn(
+      '更新提示',
       colors.yellow(`请手动更新 ${NPM_NAME}，当前版本${currentVersion}，最新版本：${lastVersion}
       更新目录： npm install -g ${NPM_NAME}`)
     )

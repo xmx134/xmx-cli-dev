@@ -1,7 +1,7 @@
 {
-  "name": "@xmx-cli-dev/log",
-  "version": "0.0.6",
-  "description": "> TODO: description",
+  "name": "get-npm-info",
+  "version": "0.0.7",
+  "description": "get-npm-info",
   "author": "xmx134 <977784602@qq.com>",
   "homepage": "https://github.com/xmx134/xmx-cli-dev#readme",
   "license": "ISC",
@@ -26,7 +26,9 @@
   "bugs": {
     "url": "https://github.com/xmx134/xmx-cli-dev/issues"
   },
-  "dependencies": {
-    "npmlog": "^7.0.1"
+  "devDependencies": {
+    "axios": "^1.7.7",
+    "semver": "^7.6.3",
+    "url-join": "^4.0.1"
   }
 }
