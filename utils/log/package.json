@@ -1,6 +1,6 @@
 {
   "name": "@xmx-cli-dev/log",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "> TODO: description",
   "author": "xmx134 <977784602@qq.com>",
   "homepage": "https://github.com/xmx134/xmx-cli-dev#readme",
@@ -29,5 +29,5 @@
   "dependencies": {
     "npmlog": "^7.0.1"
   },
-  "gitHead": "b13a00b95a1c4986e0cd08fcf7b0a9c30b4db93a"
+  "gitHead": "6041065ce9eb743a5d209041f64083fc83cf0e2a"
 }
