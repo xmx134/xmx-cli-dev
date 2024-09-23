@@ -1,11 +1,18 @@
 {
-  root: 'D:\\vue-code\\xmx-cli-dev\\core\\cli',
+  root: 'D:\\vue-code\\xmx-cli-dev',
   registry: 'https://registry.npmmirror.com',
   pkgs: [
     {
-      name: 'urlJoin',
+      name: 'semver',
       version: 'latest',
       type: 'tag',
+      alias: undefined,
+      arg: [Result]
+    },
+    {
+      name: '',
+      version: 'core/cli',
+      type: 'git',
       alias: undefined,
       arg: [Result]
     }
@@ -15,7 +22,7 @@
   cacheDir: 'C:\\Users\\97778\\.npminstall_tarball',
   env: {
     npm_config_registry: 'https://registry.npmmirror.com',
-    npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=C:\\\\Users\\\\97778\\\\.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","-D","urlJoin"],"original":["--fix-bug-versions","--china","--userconfig=C:\\\\Users\\\\97778\\\\.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","-D","urlJoin"]}',
+    npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=C:\\\\Users\\\\97778\\\\.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","-D","semver","core/cli"],"original":["--fix-bug-versions","--china","--userconfig=C:\\\\Users\\\\97778\\\\.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","-D","semver","core/cli"]}',
     npm_config_user_agent: 'npminstall/7.12.0 npm/? node/v20.9.0 win32 x64',
     npm_config_cache: 'C:\\Users\\97778\\.npminstall_tarball',
     NODE: 'C:\\Program Files\\nodejs\\node.exe',
@@ -50,8 +57,8 @@
     npm_config_sharp_binary_host: 'https://cdn.npmmirror.com/binaries/sharp',
     npm_config_sharp_libvips_binary_host: 'https://cdn.npmmirror.com/binaries/sharp-libvips',
     npm_config_robotjs_binary_host: 'https://cdn.npmmirror.com/binaries/robotjs',
-    npm_rootpath: 'D:\\vue-code\\xmx-cli-dev\\core\\cli',
-    INIT_CWD: 'D:\\vue-code\\xmx-cli-dev\\core\\cli'
+    npm_rootpath: 'D:\\vue-code\\xmx-cli-dev',
+    INIT_CWD: 'D:\\vue-code\\xmx-cli-dev'
   },
   binaryMirrors: {
     ENVS: {
@@ -187,7 +194,7 @@
   disableFallbackStore: false,
   workspacesMap: Map(0) {},
   enableWorkspace: false,
-  workspaceRoot: 'D:\\vue-code\\xmx-cli-dev\\core\\cli',
+  workspaceRoot: 'D:\\vue-code\\xmx-cli-dev',
   isWorkspaceRoot: true,
   isWorkspacePackage: false,
   offline: false,

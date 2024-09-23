@@ -11,7 +11,7 @@ const pkg = require('../package.json')
 // 新模块引用流程：在package.json文件下添加模块依赖
 // 在当前模块包下执行npm link，链接本地文件
 // 在当前模块包下执行npm i，安装对应依赖
-const log = require('@xmx-cli-dev/log')
+const { log, npm } = require('@xmx-cli-dev/log')
 
 const colors = require('colors/safe')
 const semver = require('semver')
@@ -20,22 +20,36 @@ const userHome = require('user-home')
 const fs = require('fs')
 const path = require('path')
 const pathExists = require('path-exists')
+const packageConfig = require('../package.json')
 
 const { LOWEST_NODE_VERSION, DEFAULT_CLI_HOME, NPM_NAME, DEPENDENCIES_PATH } = require('./const')
 
 let args
 let config
 
-function core() {
+async function core() {
   try {
-    checkPkgVersion()
-    checkNodeVersion()
-    checkRoot()
-    checkUserHome()
-    checkInputArgs()
-    checkEnv()
+    checkPkgVersion() // 检查当前运行版本
+    checkNodeVersion() // 检查 node 版本
+    checkRoot() // 检查是否为 root 启动
+    checkUserHome() // 检查用户主目录
+    checkInputArgs() // 检查用户输入参数
+    checkEnv() // 检查环境变量
+    await checkGlobalUpdate() // 检查工具是否需要更新
   } catch (e) {
     log.error(e.message)
+  }
+}
+
+async function checkGlobalUpdate() {
+  log.verbose('检查 xmx-cli 最新版本')
+  const currentVersion = packageConfig.version
+  const lastVersion = await npm.getNpmLatestSemverVersion(NPM_NAME, currentVersion)
+  if (lastVersion && semver.gt(lastVersion, currentVersion)) {
+    log.warn(
+      colors.yellow(`请手动更新 ${NPM_NAME}，当前版本${currentVersion}，最新版本：${lastVersion}
+      更新目录： npm install -g ${NPM_NAME}`)
+    )
   }
 }
 

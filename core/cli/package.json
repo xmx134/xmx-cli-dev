@@ -34,6 +34,9 @@
   },
   "gitHead": "07afa16c606b362a2ae0295e6e49ef671a9eac5f",
   "devDependencies": {
-    "dedent": "^1.5.3"
+    "axios": "^1.7.7",
+    "dedent": "^1.5.3",
+    "semver": "^7.6.3",
+    "url-join": "^5.0.0"
   }
 }
