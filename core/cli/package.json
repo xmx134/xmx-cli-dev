@@ -24,7 +24,7 @@
     "test": "node ./__tests__/core.test.js"
   },
   "dependencies": {
-    "@xmx-cli-dev/log": "file:../../utils/log",
+    "@xmx-cli-dev/log": "^0.0.7",
     "@xmx-cli-dev/npm": "file:../../utils/get-npm-info",
     "colors": "^1.4.0",
     "dotenv": "^16.4.5",
@@ -33,7 +33,7 @@
     "semver": "^7.6.3",
     "user-home": "^3.0.0"
   },
-  "gitHead": "07afa16c606b362a2ae0295e6e49ef671a9eac5f",
+  "gitHead": "b9e5f88905a9377e451844bca25a4d07daf75d20",
   "devDependencies": {
     "axios": "^1.7.7",
     "dedent": "^1.5.3",

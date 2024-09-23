@@ -1,5 +1,5 @@
 {
-  "name": "get-npm-info",
+  "name": "@xmx-cli-dev/get-npm-info",
   "version": "0.0.7",
   "description": "get-npm-info",
   "author": "xmx134 <977784602@qq.com>",
@@ -30,5 +30,6 @@
     "axios": "^1.7.7",
     "semver": "^7.6.3",
     "url-join": "^4.0.1"
-  }
+  },
+  "gitHead": "b9e5f88905a9377e451844bca25a4d07daf75d20"
 }
