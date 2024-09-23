@@ -12,10 +12,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "npmlog": "^7.0.1",
-    "yargs": "^17.7.2"
-  },
   "devDependencies": {
     "lerna": "^4.0.0"
   }

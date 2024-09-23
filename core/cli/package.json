@@ -25,7 +25,12 @@
   },
   "dependencies": {
     "@xmx-cli-dev/log": "file:../../utils/log",
-    "import-local": "^3.2.0"
+    "colors": "^1.4.0",
+    "dotenv": "^16.4.5",
+    "import-local": "^3.2.0",
+    "root-check": "^1.0.0",
+    "semver": "^7.6.3",
+    "user-home": "^3.0.0"
   },
   "gitHead": "07afa16c606b362a2ae0295e6e49ef671a9eac5f",
   "devDependencies": {
