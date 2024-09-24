@@ -9,7 +9,6 @@ function getNpmInfo(npmName, registryName) {
   }
   const registry = registryName || getDefaultRegistry()
   const npmInfoUrl = urlJoin(registry, npmName)
-  console.log(npmInfoUrl)
   return axios.get(npmInfoUrl).then(function (response) {
     try {
       if (response.status === 200) {
@@ -57,7 +56,6 @@ function getLatestSemverVersion(baseVersion, versions) {
 // 根据指定 version 和包名获取符合 semver 规范的最新版本号
 async function getNpmLatestSemverVersion(npmName, baseVersion, registry) {
   const versions = await getNpmVersions(npmName, registry)
-  console.log(versions, 'versions')
   const newVersions = getLatestSemverVersion(baseVersion, versions)
   if (newVersions && newVersions.length > 0) {
     return newVersions

@@ -48,12 +48,11 @@ async function checkGlobalUpdate() {
   const npmName = pkg.name
   const versions = await npm.getNpmVersions(npmName)
   const lastVersion = await npm.getNpmLatestSemverVersion(npmName, currentVersion)
-  console.log(lastVersion, currentVersion)
   if (lastVersion && semver.gt(lastVersion, currentVersion)) {
     log.warn(
       '更新提示',
       colors.yellow(`请手动更新 ${NPM_NAME}，当前版本${currentVersion}，最新版本：${lastVersion}
-      更新目录： npm install -g ${NPM_NAME}`)
+                  更新目录： npm install -g ${NPM_NAME}`)
     )
   }
 }

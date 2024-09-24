@@ -46,6 +46,11 @@ yargs(arg)
       type: 'boolean',
       describe: 'Bootstrap debug mode',
       alias: 'd'
+    },
+    xMode: {
+      type: 'boolean',
+      describe: 'Bootstrap x mode',
+      alias: 'x'
     }
   })
   .option('registry', {
@@ -53,7 +58,7 @@ yargs(arg)
     alias: 'r'
     // hidden: true // hidden隐藏指令
   })
-  .group(['debug'], '开发选项:')
+  .group(['debug', 'xMode'], '开发选项:')
   .group(['registry'], '额外选项:')
   .command({
     command: 'init [name]',
