@@ -1,6 +1,6 @@
 {
   "name": "@xmx-cli-dev/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "xmx-cli-dev core",
   "author": "xmx134 <977784602@qq.com>",
   "homepage": "",
@@ -24,7 +24,7 @@
     "test": "node ./__tests__/core.test.js"
   },
   "dependencies": {
-    "@xmx-cli-dev/log": "^1.0.0",
+    "@xmx-cli-dev/log": "^1.0.1",
     "@xmx-cli-dev/npm": "file:../../utils/get-npm-info",
     "colors": "^1.4.0",
     "dotenv": "^16.4.5",
