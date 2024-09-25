@@ -36,7 +36,7 @@
     "semver": "^7.6.3",
     "user-home": "^3.0.0"
   },
-  "gitHead": "87163f5cef12465822875f2eb82c1e30bdd7b924",
+  "gitHead": "d30640184753ecd3c17059450ebe35cdb3cd8120",
   "devDependencies": {
     "axios": "^1.7.7",
     "commander": "^12.1.0",
