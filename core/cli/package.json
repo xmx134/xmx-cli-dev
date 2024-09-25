@@ -1,6 +1,6 @@
 {
   "name": "@xmx-cli-dev/core",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "xmx-cli-dev core",
   "author": "xmx134 <977784602@qq.com>",
   "homepage": "",
@@ -25,8 +25,8 @@
     "dev": "webpack -w --mode development"
   },
   "dependencies": {
-    "@xmx-cli-dev/init": "^1.0.2",
-    "@xmx-cli-dev/log": "^1.0.2",
+    "@xmx-cli-dev/init": "^1.0.3",
+    "@xmx-cli-dev/log": "^1.0.3",
     "@xmx-cli-dev/npm": "file:../../utils/get-npm-info",
     "colors": "^1.4.0",
     "dotenv": "^16.4.5",
