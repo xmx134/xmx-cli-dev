@@ -25,8 +25,8 @@
     "dev": "webpack -w --mode development"
   },
   "dependencies": {
-    "@xmx-cli-dev/init": "file:../../commands/init",
-    "@xmx-cli-dev/log": "file:../../utils/log",
+    "@xmx-cli-dev/init": "^1.0.2",
+    "@xmx-cli-dev/log": "^1.0.2",
     "@xmx-cli-dev/npm": "file:../../utils/get-npm-info",
     "colors": "^1.4.0",
     "dotenv": "^16.4.5",
@@ -36,7 +36,7 @@
     "semver": "^7.6.3",
     "user-home": "^3.0.0"
   },
-  "gitHead": "2292fd9e5149f1ee69d8514f1557c150920b73c2",
+  "gitHead": "87163f5cef12465822875f2eb82c1e30bdd7b924",
   "devDependencies": {
     "axios": "^1.7.7",
     "commander": "^12.1.0",
