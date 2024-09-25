@@ -13,6 +13,7 @@ const pkg = require('../package.json')
 // 在当前模块包下执行npm i，安装对应依赖
 const log = require('@xmx-cli-dev/log')
 const npm = require('@xmx-cli-dev/npm')
+const init = require('@xmx-cli-dev/init')
 
 const colors = require('colors/safe')
 const semver = require('semver')
@@ -48,6 +49,8 @@ async function core() {
 
 function registerCommand() {
   program.name(Object.keys(pkg.bin)[0]).usage('<command> [options]').version(pkg.version).option('-d --debug', '是否开启调试模式', false)
+
+  program.command('init [projectName]').option('-f,--force', '是否强制初始化').action(init)
 
   // 开启debug模式
   program.on('option:debug', function () {
