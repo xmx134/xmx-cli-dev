@@ -21,6 +21,7 @@ const userHome = require('user-home')
 const fs = require('fs')
 const path = require('path')
 const pathExists = require('path-exists')
+const commander = require('commander')
 const packageConfig = require('../package.json')
 
 const { LOWEST_NODE_VERSION, DEFAULT_CLI_HOME, NPM_NAME, DEPENDENCIES_PATH } = require('./const')
@@ -28,17 +29,57 @@ const { LOWEST_NODE_VERSION, DEFAULT_CLI_HOME, NPM_NAME, DEPENDENCIES_PATH } = r
 let args
 let config
 
+const program = new commander.Command()
+
 async function core() {
   try {
     checkPkgVersion() // 检查当前运行版本
     checkNodeVersion() // 检查 node 版本
     checkRoot() // 检查是否为 root 启动
     checkUserHome() // 检查用户主目录
-    checkInputArgs() // 检查用户输入参数
+    // checkInputArgs() // 检查用户输入参数 功能迁移到registerCommand中，监听debug功能
     checkEnv() // 检查环境变量
     await checkGlobalUpdate() // 检查工具是否需要更新
+    registerCommand()
   } catch (e) {
     log.error(e.message)
+  }
+}
+
+function registerCommand() {
+  program.name(Object.keys(pkg.bin)[0]).usage('<command> [options]').version(pkg.version).option('-d --debug', '是否开启调试模式', false)
+
+  // 开启debug模式
+  program.on('option:debug', function () {
+    if (program._optionValues.debug) {
+      process.env.LOG_LEVEL = 'verbose'
+    } else {
+      process.env.LOG_LEVEL = 'info'
+    }
+    log.level = process.env.LOG_LEVEL
+  })
+
+  // 对未知命令进行监听
+  program.on('command:*', function (obj) {
+    const availableCommands = program.commands.map(cmd => cmd.name())
+    console.log(colors.red(`未知的命令${obj[0]}`))
+    if (availableCommands.length > 0) {
+      console.log(colors.red(`可用命令：${availableCommands.join(',')}`))
+    }
+  })
+
+  // 无法判断是否是空指令，因为options和command都会进入process.argv里面
+  // if (process.argv.length < 3) {
+  //   program.outputHelp()
+  //   console.log()
+  // }
+
+  program.parse(process.argv)
+
+  // 通过program.parse对参数解析后，command进入program.args中，这时判断空指令更加准确
+  if (program.args && program.args.length < 1) {
+    program.outputHelp()
+    console.log()
   }
 }
 

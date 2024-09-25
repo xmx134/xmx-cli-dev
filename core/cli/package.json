@@ -21,23 +21,27 @@
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "test": "node ./__tests__/core.test.js"
+    "build": "webpack --mode development",
+    "dev": "webpack -w --mode development"
   },
   "dependencies": {
-    "@xmx-cli-dev/log": "^1.0.1",
+    "@xmx-cli-dev/log": "file:../../utils/log",
     "@xmx-cli-dev/npm": "file:../../utils/get-npm-info",
     "colors": "^1.4.0",
     "dotenv": "^16.4.5",
     "import-local": "^3.2.0",
+    "path-exists": "^4.0.0",
     "root-check": "^1.0.0",
     "semver": "^7.6.3",
     "user-home": "^3.0.0"
   },
-  "gitHead": "7e016632e67759afe739cc31f26595cd86bf762f",
+  "gitHead": "2292fd9e5149f1ee69d8514f1557c150920b73c2",
   "devDependencies": {
     "axios": "^1.7.7",
     "commander": "^12.1.0",
     "dedent": "^1.5.3",
-    "semver": "^7.6.3"
+    "semver": "^7.6.3",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
   }
 }
