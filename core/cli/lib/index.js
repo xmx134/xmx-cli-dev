@@ -14,6 +14,7 @@ const pkg = require('../package.json')
 const log = require('@xmx-cli-dev/log')
 const npm = require('@xmx-cli-dev/npm')
 const init = require('@xmx-cli-dev/init')
+const exec = require('@xmx-cli-dev/exec')
 
 const colors = require('colors/safe')
 const semver = require('semver')
@@ -34,23 +35,23 @@ const program = new commander.Command()
 
 async function core() {
   try {
-    checkPkgVersion() // 检查当前运行版本
-    checkNodeVersion() // 检查 node 版本
-    checkRoot() // 检查是否为 root 启动
-    checkUserHome() // 检查用户主目录
-    // checkInputArgs() // 检查用户输入参数 功能迁移到registerCommand中，监听debug功能
-    checkEnv() // 检查环境变量
-    await checkGlobalUpdate() // 检查工具是否需要更新
+    await prepare()
     registerCommand()
   } catch (e) {
     log.error(e.message)
+    log.verbose(e)
   }
 }
 
 function registerCommand() {
-  program.name(Object.keys(pkg.bin)[0]).usage('<command> [options]').version(pkg.version).option('-d --debug', '是否开启调试模式', false)
+  program
+    .name(Object.keys(pkg.bin)[0])
+    .usage('<command> [options]')
+    .version(pkg.version)
+    .option('-d --debug', '是否开启调试模式', false)
+    .option('-tp, --targetPath <targetPath>', '是否指定本地调试文件路径', '')
 
-  program.command('init [projectName]').option('-f,--force', '是否强制初始化').action(init)
+  program.command('init [projectName]').option('-f,--force', '是否强制初始化').action(exec)
 
   // 开启debug模式
   program.on('option:debug', function () {
@@ -60,6 +61,11 @@ function registerCommand() {
       process.env.LOG_LEVEL = 'info'
     }
     log.level = process.env.LOG_LEVEL
+  })
+
+  // 指定 targetPath，传入到process.env里，process在整个node软件中都村庄
+  program.on('option:targetPath', function () {
+    process.env.CLI_TARGET_PATH = program._optionValues.targetPath
   })
 
   // 对未知命令进行监听
@@ -86,8 +92,17 @@ function registerCommand() {
   }
 }
 
+async function prepare() {
+  checkPkgVersion() // 检查当前运行版本
+  checkNodeVersion() // 检查 node 版本
+  checkRoot() // 检查是否为 root 启动
+  checkUserHome() // 检查用户主目录
+  // checkInputArgs() // 检查用户输入参数 功能迁移到registerCommand中，监听debug功能
+  checkEnv() // 检查环境变量
+  await checkGlobalUpdate() // 检查工具是否需要更新
+}
+
 async function checkGlobalUpdate() {
-  log.verbose('检查 xmx-cli 最新版本')
   const currentVersion = packageConfig.version
   const npmName = pkg.name
   const versions = await npm.getNpmVersions(npmName)
@@ -103,7 +118,6 @@ async function checkGlobalUpdate() {
 
 function checkEnv() {
   log.info(userHome)
-  log.verbose('开始检查环境变量')
   const dotenv = require('dotenv')
   const dotenvPath = path.resolve(userHome, '.env')
   if (pathExists(dotenvPath)) {
@@ -112,7 +126,6 @@ function checkEnv() {
     })
   }
   createCliConfig()
-  log.verbose('环境变量', config)
 }
 
 function createCliConfig() {
@@ -129,11 +142,9 @@ function createCliConfig() {
 }
 
 function checkInputArgs() {
-  log.verbose('开始校验输入参数')
   const minimist = require('minimist')
   args = minimist(process.argv.slice(2))
   checkArgs(args)
-  log.verbose('输入参数', args)
 }
 
 function checkArgs(args) {

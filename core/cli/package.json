@@ -5,7 +5,7 @@
   "author": "xmx134 <977784602@qq.com>",
   "homepage": "",
   "license": "ISC",
-  "main": "lib/core.js",
+  "main": "lib/index.js",
   "bin": {
     "xmx-cli-dev": "bin/index.js"
   },
@@ -28,6 +28,7 @@
     "@xmx-cli-dev/init": "^1.0.4",
     "@xmx-cli-dev/log": "^1.0.4",
     "@xmx-cli-dev/npm": "file:../../utils/get-npm-info",
+    "@xmx-cli-dev/exec": "file:../exec",
     "colors": "^1.4.0",
     "dotenv": "^16.4.5",
     "import-local": "^3.2.0",
@@ -36,7 +37,7 @@
     "semver": "^7.6.3",
     "user-home": "^3.0.0"
   },
-  "gitHead": "d30640184753ecd3c17059450ebe35cdb3cd8120",
+  "gitHead": "a2ed1f5e23c6d06ac438fd56b5a2ebf93ea478bd",
   "devDependencies": {
     "axios": "^1.7.7",
     "commander": "^12.1.0",
