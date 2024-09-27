@@ -1,7 +1,7 @@
 {
-  "name": "@xmx-cli-dev/get-npm-info",
+  "name": "@xmx-cli-dev/package",
   "version": "1.0.4",
-  "description": "get-npm-info",
+  "description": "xmx-cli-dev  npm modules",
   "author": "xmx134 <977784602@qq.com>",
   "homepage": "https://github.com/xmx134/xmx-cli-dev#readme",
   "license": "ISC",
@@ -14,7 +14,6 @@
     "lib"
   ],
   "publishConfig": {
-    "access": "public",
     "registry": "https://registry.npmjs.org"
   },
   "repository": {
@@ -27,10 +26,13 @@
   "bugs": {
     "url": "https://github.com/xmx134/xmx-cli-dev/issues"
   },
-  "devDependencies": {
-    "axios": "^1.7.7",
-    "semver": "^7.6.3",
-    "url-join": "^4.0.1"
-  },
-  "gitHead": "a2ed1f5e23c6d06ac438fd56b5a2ebf93ea478bd"
+  "dependencies": {
+    "@xmx-cli-dev/format-path": "file:../../utils/format-path",
+    "@xmx-cli-dev/get-npm-info": "file:../../utils/get-npm-info",
+    "@xmx-cli-dev/utils": "file:../../utils/utils",
+    "fs-extra": "^9.0.1",
+    "npminstall": "^7.12.0",
+    "path-exists": "^4.0.0",
+    "pkg-dir": "^5.0.0"
+  }
 }

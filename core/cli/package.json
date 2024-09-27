@@ -30,11 +30,11 @@
     "@xmx-cli-dev/npm": "file:../../utils/get-npm-info",
     "@xmx-cli-dev/exec": "file:../exec",
     "colors": "^1.4.0",
+    "semver": "^7.6.3",
     "dotenv": "^16.4.5",
     "import-local": "^3.2.0",
     "path-exists": "^4.0.0",
     "root-check": "^1.0.0",
-    "semver": "^7.6.3",
     "user-home": "^3.0.0"
   },
   "gitHead": "a2ed1f5e23c6d06ac438fd56b5a2ebf93ea478bd",

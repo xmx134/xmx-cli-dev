@@ -26,15 +26,20 @@ function getDefaultRegistry(isOriginal = true) {
 }
 
 // 获取某个 npm 的最新版本号
-function getLatestVersion(npm, registry) {
-  return getNpmInfo(npm, registry).then(function (data) {
-    if (!data['dist-tags'] || !data['dist-tags'.latest]) {
-      console.error('没有 latest 版本号', data)
-      return Promise.reject(new Error('Error: 没有 latest 版本号'))
-    }
-    const latestVersion = data['dist-tags'].latest
-    return latestVersion
-  })
+async function getNpmLatestVersion(npmName, registry) {
+  let versions = await getNpmVersions(npmName, registry)
+  if (versions) {
+    return versions.sort((a, b) => semver.gt(b, a))[0]
+  }
+  return null
+  // return getNpmInfo(npm, registry).then(function (data) {
+  //   if (!data['dist-tags'] || !data['dist-tags'.latest]) {
+  //     console.error('没有 latest 版本号', data)
+  //     return Promise.reject(new Error('Error: 没有 latest 版本号'))
+  //   }
+  //   const latestVersion = data['dist-tags'].latest
+  //   return latestVersion
+  // })
 }
 
 // 获取某个 npm 的所有版本号
@@ -65,7 +70,7 @@ async function getNpmLatestSemverVersion(npmName, baseVersion, registry) {
 module.exports = {
   getDefaultRegistry,
   getNpmInfo,
-  getLatestVersion,
+  getNpmLatestVersion,
   getNpmLatestSemverVersion,
   getNpmVersions
 }

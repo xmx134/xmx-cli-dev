@@ -94,7 +94,6 @@ function registerCommand() {
 
 async function prepare() {
   checkPkgVersion() // 检查当前运行版本
-  checkNodeVersion() // 检查 node 版本
   checkRoot() // 检查是否为 root 启动
   checkUserHome() // 检查用户主目录
   // checkInputArgs() // 检查用户输入参数 功能迁移到registerCommand中，监听debug功能

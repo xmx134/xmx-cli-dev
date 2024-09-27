@@ -2,7 +2,7 @@
   "name": "@xmx-cli-dev/init",
   "version": "1.0.4",
   "description": "xmx-cli-dev init",
-  "author": "xmx134 <9777846.2@qq.com>",
+  "author": "xmx134 <977784602@qq.com>",
   "homepage": "https://github.com/xmx134/xmx-cli-dev#readme",
   "license": "ISC",
   "main": "lib/index.js",
@@ -24,8 +24,12 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
+  "dependencies": {
+    "@xmx-cli-dev/command": "file:../../models/command",
+    "@xmx-cli-dev/log": "file:../../utils/log"
+  },
   "bugs": {
     "url": "https://github.com/xmx134/xmx-cli-dev/issues"
   },
-  "gitHead": "d30640184753ecd3c17059450ebe35cdb3cd8120"
+  "gitHead": "a2ed1f5e23c6d06ac438fd56b5a2ebf93ea478bd"
 }
