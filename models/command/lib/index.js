@@ -8,7 +8,6 @@ const LOWEST_NODE_VERSION = '11.0.0'
 
 class Command {
   constructor(argv) {
-    console.log('Command constructor', argv)
     if (!argv) {
       throw new Error('参数不能为空！')
     }
@@ -33,10 +32,11 @@ class Command {
     })
   }
 
+  // 初始化全局参数
   initArgs() {
-    this._cmd = this._argv[this._argv.length - 1]
+    this._cmd = this._argv[this._argv.length - 2]
     this._argv = this._argv.slice(0, this._argv.length - 1)
-    console.log(this._cmd, this._argv)
+    log.verbose('initArgs', this._cmd, this._argv)
   }
 
   init() {

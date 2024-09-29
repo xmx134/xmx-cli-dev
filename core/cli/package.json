@@ -25,14 +25,14 @@
     "dev": "webpack -w --mode development"
   },
   "dependencies": {
-    "@xmx-cli-dev/init": "^1.0.4",
-    "@xmx-cli-dev/log": "^1.0.4",
-    "@xmx-cli-dev/npm": "file:../../utils/get-npm-info",
+    "@xmx-cli-dev/init": "file:../../commands/init",
+    "@xmx-cli-dev/log": "file:../../utils/log",
+    "@xmx-cli-dev/get-npm-info": "file:../../utils/get-npm-info",
     "@xmx-cli-dev/exec": "file:../exec",
     "colors": "^1.4.0",
     "semver": "^7.6.3",
     "dotenv": "^16.4.5",
-    "import-local": "^3.2.0",
+    "import-local": "^3.0.2",
     "path-exists": "^4.0.0",
     "root-check": "^1.0.0",
     "user-home": "^3.0.0"

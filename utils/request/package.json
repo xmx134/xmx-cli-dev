@@ -1,7 +1,7 @@
 {
-  "name": "@xmx-cli-dev/init",
+  "name": "@xmx-cli-dev/request",
   "version": "1.0.4",
-  "description": "xmx-cli-dev init",
+  "description": "> TODO: description",
   "author": "xmx134 <977784602@qq.com>",
   "homepage": "https://github.com/xmx134/xmx-cli-dev#readme",
   "license": "ISC",
@@ -14,7 +14,6 @@
     "lib"
   ],
   "publishConfig": {
-    "access": "public",
     "registry": "https://registry.npmjs.org"
   },
   "repository": {
@@ -24,19 +23,11 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "dependencies": {
-    "@xmx-cli-dev/command": "file:../../models/command",
-    "@xmx-cli-dev/log": "file:../../utils/log",
-    "@xmx-cli-dev/utils": "file:../../utils/utils",
-    "@xmx-cli-dev/package": "file:../../models/package",
-    "@xmx-cli-dev/request": "file:../../utils/request",
-    "fs-extra": "^9.0.1",
-    "inquirer": "^7.3.3",
-    "semver": "^7.6.3",
-    "user-home": "^3.0.0"
-  },
   "bugs": {
     "url": "https://github.com/xmx134/xmx-cli-dev/issues"
+  },
+  "dependencies": {
+    "axios": "^1.7.7"
   },
   "gitHead": "a2ed1f5e23c6d06ac438fd56b5a2ebf93ea478bd"
 }

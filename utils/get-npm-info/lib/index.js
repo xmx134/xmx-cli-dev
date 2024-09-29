@@ -21,15 +21,19 @@ function getNpmInfo(npmName, registryName) {
 }
 
 // 获取 registry 信息
-function getDefaultRegistry(isOriginal = true) {
-  return isOriginal ? 'https://registry.npmjs.org' : 'https://registry.npm.taobao.org'
+// 项目如果会卡的话，基本上就是源这里出了问题，只有这里需要调用远程接口。
+function getDefaultRegistry(isOriginal = false) {
+  // 淘宝源总是显示证书过期，替换成腾讯云镜像
+  return isOriginal ? 'https://registry.npmjs.org' : 'https://mirrors.cloud.tencent.com/npm/'
 }
 
 // 获取某个 npm 的最新版本号
 async function getNpmLatestVersion(npmName, registry) {
   let versions = await getNpmVersions(npmName, registry)
   if (versions) {
-    return versions.sort((a, b) => semver.gt(b, a))[0]
+    // TODO 似乎这个排序不生效
+    // return versions.sort((a, b) => (semver.gt(a, b) ? 1 : -1))[versions.length - 1]
+    return versions[versions.length - 1]
   }
   return null
   // return getNpmInfo(npm, registry).then(function (data) {
@@ -54,7 +58,7 @@ async function getNpmVersions(npmName, registry) {
 
 // 根据指定 version 获取符合 semver 规范的最新版本号
 function getLatestSemverVersion(baseVersion, versions) {
-  versions = versions.filter(version => semver.satisfies(version, `^ ${baseVersion}`)).sort((a, b) => semver.gt(b, a))
+  versions = versions.filter(version => semver.satisfies(version, `^ ${baseVersion}`)).sort((a, b) => (semver.gt(b, a) ? 1 : -1))
   return versions[0]
 }
 

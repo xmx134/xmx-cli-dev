@@ -12,7 +12,7 @@ const pkg = require('../package.json')
 // 在当前模块包下执行npm link，链接本地文件
 // 在当前模块包下执行npm i，安装对应依赖
 const log = require('@xmx-cli-dev/log')
-const npm = require('@xmx-cli-dev/npm')
+const npm = require('@xmx-cli-dev/get-npm-info')
 const init = require('@xmx-cli-dev/init')
 const exec = require('@xmx-cli-dev/exec')
 
@@ -63,7 +63,7 @@ function registerCommand() {
     log.level = process.env.LOG_LEVEL
   })
 
-  // 指定 targetPath，传入到process.env里，process在整个node软件中都村庄
+  // 指定 targetPath，传入到process.env里，process在整个node软件中都存在
   program.on('option:targetPath', function () {
     process.env.CLI_TARGET_PATH = program._optionValues.targetPath
   })

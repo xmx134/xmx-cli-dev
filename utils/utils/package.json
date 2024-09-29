@@ -25,5 +25,8 @@
   },
   "bugs": {
     "url": "https://github.com/xmx134/xmx-cli-dev/issues"
+  },
+  "dependencies": {
+    "cli-spinner": "^0.2.10"
   }
 }
