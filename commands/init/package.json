@@ -27,11 +27,14 @@
   "dependencies": {
     "@xmx-cli-dev/command": "file:../../models/command",
     "@xmx-cli-dev/log": "file:../../utils/log",
-    "@xmx-cli-dev/utils": "file:../../utils/utils",
     "@xmx-cli-dev/package": "file:../../models/package",
     "@xmx-cli-dev/request": "file:../../utils/request",
+    "@xmx-cli-dev/utils": "file:../../utils/utils",
+    "ejs": "^3.1.10",
     "fs-extra": "^9.0.1",
+    "glob": "^7.1.6",
     "inquirer": "^7.3.3",
+    "kebab-case": "^1.0.0",
     "semver": "^7.6.3",
     "user-home": "^3.0.0"
   },

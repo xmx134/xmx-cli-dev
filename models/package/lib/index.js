@@ -47,8 +47,15 @@ class Package {
     }
   }
 
+  // 缓存路径变化，新增了node_modules
   get cacheFilePath() {
-    return path.resolve(this.storeDir, '.store', `${this.cacheFilePathPrefix}@${this.packageVersion}`)
+    return path.resolve(
+      this.storeDir,
+      '.store',
+      `${this.cacheFilePathPrefix}@${this.packageVersion}`,
+      'node_modules',
+      this.cacheFilePathPrefix
+    )
   }
 
   getSpecificCacheFilePath(packageVersion) {
@@ -85,7 +92,6 @@ class Package {
     await this.prepare()
     // 1、获取最新的npm模块版本号
     const latestPackageVersion = await getNpmLatestVersion(this.packageName)
-    console.log(latestPackageVersion, 'latestPackageVersion')
     // 2、查询最新版本号对应的路径是否存在
     const latestFilePath = this.getSpecificCacheFilePath(latestPackageVersion)
     // 3、如果不存在，则直接安装最新版本

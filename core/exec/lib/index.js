@@ -4,6 +4,7 @@ const path = require('path')
 const cp = require('child_process')
 const Package = require('@xmx-cli-dev/package')
 const log = require('@xmx-cli-dev/log')
+const { exec: spawn } = require('@xmx-cli-dev/utils')
 
 const SETTINGS = {
   init: '@xmx-cli-dev/init'
@@ -92,14 +93,6 @@ async function exec() {
       log.error(error.message)
     }
   }
-}
-
-function spawn(command, args, options) {
-  const win32 = process.platform === 'win32'
-
-  const cmd = win32 ? 'cmd' : command
-  const cmdArgs = win32 ? ['/c'].concat(command, args) : args
-  return cp.spawn(cmd, cmdArgs, options || {})
 }
 
 module.exports = exec
